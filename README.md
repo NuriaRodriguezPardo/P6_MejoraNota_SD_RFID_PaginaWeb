@@ -152,7 +152,7 @@
     server.send(200, "text/html", paginaHTML);
     }
 ```
-**Descripción:**
+**Descripción:**<br>
 Implementa un sistema de lectura de tarjetas RFID utilizando un módulo MFRC522 y un microcontrolador ESP8266/ESP32, junto con funcionalidades de red para enviar datos a un servidor web.<br>
 El proceso comienza con la inicialización de los periféricos y la conexión WiFi. Una vez conectado a la red, el dispositivo espera la detección de una tarjeta RFID. Cuando se presenta una tarjeta, se lee su UID y se obtiene la hora del sistema. Luego, estos datos se registran en un archivo de registro local y se envían al servidor web mediante una solicitud HTTP GET.<br>
 La función ``enviarDatosWeb`` establece una conexión con el servidor y construye un mensaje HTTP que contiene el UID y la hora como parámetros. Este mensaje se envía al servidor, y luego se espera y muestra la respuesta del servidor.<br>
@@ -181,7 +181,7 @@ Finalmente, la función ``handleRoot`` maneja las solicitudes al servidor web y 
                         </body>\
                         </html>";
 ```
-**Descripción:**
+**Descripción:**<br>
 Proporciona información sobre la última tarjeta RFID detectada y la hora en que se registró.<br>
 En la parte superior, hay un encabezado que indica "Información RFID". A continuación, hay dos párrafos etiquetados como "UID" y "Hora", seguidos de espacios reservados que se llenan dinámicamente con la información actualizada.<br>
 La sección ``<script>`` de la página se utiliza para actualizar estos espacios reservados con los datos de UID y hora proporcionados. La función ``actualizarDatos(uid, hora)`` toma dos argumentos (el UID y la hora) y los establece como contenido de los elementos HTML con los IDs correspondientes: uid y hora. Esto permite que la página web muestre los datos más recientes sin necesidad de recargarla.<br>
